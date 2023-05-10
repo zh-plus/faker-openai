@@ -31,8 +31,7 @@ faker.address(2)
 
 ## Todo
 
--[ ] Add basic faker data types (reference to [faker-js](https://github.com/faker-js/faker)
-  and [faker-python](https://github.com/joke2k/faker))
+- Add basic faker data types (reference to [faker-js](https://github.com/faker-js/faker) and [faker-python](https://github.com/joke2k/faker))
     - [ ] Fine-grained address (city, country, street, etc.)
     - [ ] Fine-grained name (first name, last name, job, etc.)
     - [ ] Color
