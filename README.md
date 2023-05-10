@@ -28,3 +28,23 @@ faker.name()
 faker.address(2)
 # ['426 Jordy Lodge', 'Cartwrightshire, SC 88120-6700']
 ```
+
+## Todo
+
+-[ ] Add basic faker data types (reference to [faker-js](https://github.com/faker-js/faker)
+  and [faker-python](https://github.com/joke2k/faker))
+    - [ ] Fine-grained address (city, country, street, etc.)
+    - [ ] Fine-grained name (first name, last name, job, etc.)
+    - [ ] Color
+    - [ ] Company
+    - [ ] Internet
+    - [ ] Image
+- [ ] Store commonly used fake data locally to avoid calling the OpenAI API for small amounts of data.
+- [ ] Test the stability of the prompt.
+
+## Credits
+
+- https://github.com/faker-js/faker
+- https://github.com/joke2k/faker
+- https://github.com/openai/openai-python
+- https://github.com/flyingcircusio/pycountry
