@@ -12,8 +12,7 @@ Install with pip:
 pip install openfaker
 ```
 
-Use `faker.Faker()` to create and initialize a faker generator, which can generate data by accessing properties named
-after the type of data you want.
+To generate data, create and initialize a faker generator using the `faker.Faker()` method. Access properties named after the type of data you want to generate.
 
 ```python
 from openfaker import Faker
