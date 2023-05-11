@@ -1,6 +1,7 @@
 import openai
 
 from openfaker.prompter import Prompter
+from openfaker.utils import json2dict
 
 
 class Bot:
@@ -15,4 +16,6 @@ class Bot:
         return completion.choices[0].message.content
 
     def query(self, prompter: Prompter):
-        return self.message(prompter)
+        json_str = self.message(prompter)
+        print(json_str)
+        return json2dict(json_str)

@@ -1,7 +1,6 @@
 from openfaker.bot import Bot
-from openfaker.prompter import NamePrompter, AddressPrompter
-
-from openfaker.utils import json2dict
+from openfaker.checker import total_num_check
+from openfaker.prompter import NamePrompter, AddressPrompter, ColorPrompter
 
 
 class Faker:
@@ -9,21 +8,25 @@ class Faker:
         self.bot = Bot()
 
     def name(self, num=1, locale='US'):
-        json_str = self.bot.query(NamePrompter(num, locale))
-        result = json2dict(json_str)
+        result = self.bot.query(NamePrompter(num, locale))
 
         # Rationality Assessment
-        if result['total_num'] != num:
-            raise ValueError(f"Expected {num} names, but got {result['num']} names.")
+        total_num_check(result, num)
 
         return result['list'] if num > 1 else result['list'][0]
 
     def address(self, num=1):
-        json_str = self.bot.query(AddressPrompter(num))
-        result = json2dict(json_str)
+        result = self.bot.query(AddressPrompter(num))
 
         # Rationality Assessment
-        if result['total_num'] != num:
-            raise ValueError(f"Expected {num} addresses, but got {result['num']} addresses.")
+        total_num_check(result, num)
+
+        return result['list'] if num > 1 else result['list'][0]
+
+    def color(self, num=1, fmt='rgb'):
+        result = self.bot.query(ColorPrompter(num))
+
+        # Rationality Assessment
+        total_num_check(result, num)
 
         return result['list'] if num > 1 else result['list'][0]

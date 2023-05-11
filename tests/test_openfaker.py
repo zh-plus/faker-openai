@@ -16,6 +16,10 @@ def test_address():
     assert len(faker.address(20)) == 20
 
 
+def test_color():
+    print(faker.color(10))
+
+
 def test_locale():
     detector = LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().build()
 

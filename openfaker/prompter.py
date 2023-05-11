@@ -4,6 +4,7 @@ import pycountry as pyc
 json_format = {
     'name': '{"total_num": <returned-number>, "list": [<returned-name-list>]}',
     'address': '{"total_num": <returned-number>, "list": [<returned-address-list>]}',
+    'color': '{"total_num": <returned-number>, "list": [(r, g, b), ...)]}',
 }
 
 
@@ -44,3 +45,14 @@ class AddressPrompter(Prompter):
                f' DO NOT return any other words before or after that paragraph.' \
                f' DO NOT use ellipses in that paragraph.' \
                f' Use the {country_name} language to generate addresses.'
+
+
+class ColorPrompter(Prompter):
+    def __init__(self, num=1):
+        self.num = num
+
+    def __str__(self):
+        return f'As a fake color generator, please generate {self.num} different colors in rgb format at single paragraph.' \
+               f' The paragraph have the following format: {json_format["address"]}.' \
+               f' DO NOT return any other words before or after that paragraph.' \
+               f' DO NOT use ellipses in that paragraph.'
